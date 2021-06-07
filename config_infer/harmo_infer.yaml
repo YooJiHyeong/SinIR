@@ -1,0 +1,19 @@
+DESC:
+  - harmonization
+
+# USE_LAST_NET_ONLY: true
+
+DATASET:
+  task: harmo
+  img_path: "imgs/harmonization/harmo_naive.jpg"
+  mask_path: "imgs/harmonization/harmo_mask.jpg"
+
+  # ---------------------------------------------------------------------------
+  # by specifying 'img_shape', the image will be resized before inference
+
+  # img_shape: [480, 320]   # the training image will be resized to (480, 320)
+
+  # img_shape: 480          # the training image will be resized,
+                            #     and the longer side will be 480px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

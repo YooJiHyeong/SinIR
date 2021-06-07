@@ -1,0 +1,54 @@
+INFER_YAML:         # if not specified, only training will be excuted
+  - photo_infer
+  # - more
+  # - yamls
+  # - for
+  # - inference
+
+INTERP: pytorch     # bicubic
+# INTERP: matlab    # bicubic + anti-aliasing
+
+OPT:
+  lr: 0.0001
+  betas: [0.5, 0.999]
+
+NET:
+  img_ch: 3
+  net_ch: 128
+
+DESC:
+  - photo_st
+  # - more
+  # - descriptions
+  # - you
+  # - want
+
+TRAIN:
+  losses:
+    - ssim11
+    - mse
+
+  iter_per_scale: 500
+  pixel_shuffle_p: 0.005    # 0.005 -> 0.5%
+
+DATASET:
+  task: photo       # this will set 'scale_factor' to 1 and 'scale_num' to 2
+                    # you may want to check or modify 'loader.py' depending on your purpose
+
+  img_path: imgs/photo_st/photo_style.png
+
+  # min_size: null            # note: if you choose 'photo' for 'task',
+  # max_size: null            #    'min_size', 'max_size' and 'scale_factor' become obsolete
+  # scale_factor: null        #    as 'scale_factor' will be set to 1
+
+ # ---------------------------------------------------------------------------
+  # by specifying 'img_shape',
+  # the image will be initially resized
+  # before applying 'min_size' and 'max_size'
+
+  # img_shape: [120, 80]    # the training image will be resized to (120, 80)
+
+  img_shape: 250            # the training image will be resized,
+                            #     and the longer side will be 250px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

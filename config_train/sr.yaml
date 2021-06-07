@@ -1,0 +1,56 @@
+INFER_YAML:         # if not specified, only training will be excuted
+  - sr_infer
+  # - more
+  # - yamls
+  # - for
+  # - inference
+
+# INTERP: pytorch   # bicubic
+INTERP: matlab      # bicubic + anti-aliasing
+
+OPT:
+  lr: 0.001
+  betas: [0.5, 0.999]
+
+NET:
+  img_ch: 3
+  net_ch: 256
+
+DESC:
+  - super_resolution
+  # - more
+  # - descriptions
+  # - you
+  # - want
+
+TRAIN:
+  losses:
+    - ssim11
+    - mse
+
+  iter_per_scale: 1000
+  pixel_shuffle_p: 0.0005    # 0.0005 -> 0.05%
+
+DATASET:
+  task: sr         # by choosing 'sr', 'scale_factor' will be inferred with 'sr_factor' and 'scale_num'
+  sr_factor: 2     # Note: Training SR factor does not necessarily mean inference SR factor
+                   #       (ex. a model trained for X2 works well for X4 inference)
+  scale_num: 2
+
+  img_path: imgs/super_resolution/LR.png
+
+  # min_size: null           # not used for super-resolution,
+  # max_size: null           # because 'scale_factor' will be inferred
+  # scale_factor: null       # with 'sr_factor' and 'scale_num'
+
+ # ---------------------------------------------------------------------------
+  # by specifying 'img_shape',
+  # the image will be initially resized
+  # before applying 'min_size' and 'max_size'
+
+  # img_shape: [120, 80]    # the training image will be resized to (120, 80)
+
+  img_shape: 120            # the training image will be resized,
+                            #     and the longer side will be 120px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

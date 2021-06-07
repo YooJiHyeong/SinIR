@@ -1,0 +1,19 @@
+DESC:
+  - editing
+
+# USE_LAST_NET_ONLY: true
+
+DATASET:
+  task: edit
+  img_path: imgs/editing/nature_edit.png
+  mask_path: imgs/editing/nature_mask.png
+
+  # ---------------------------------------------------------------------------
+  # by specifying 'img_shape', the image will be resized before inference
+
+  # img_shape: [480, 320]   # the training image will be resized to (480, 320)
+
+  img_shape: 250            # the training image will be resized,
+                            #     and the longer side will be 250px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

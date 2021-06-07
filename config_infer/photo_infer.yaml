@@ -1,0 +1,20 @@
+DESC:
+  - photo_st
+
+# USE_LAST_NET_ONLY: true
+
+DATASET:
+  img_path: "imgs/photo_st/photo_content.png"
+
+  # task: null              # not used for photo-realistic style transfer
+  # mask_path: null
+
+  # ---------------------------------------------------------------------------
+  # by specifying 'img_shape', the image will be resized before inference
+
+  # img_shape: [480, 320]   # the training image will be resized to (480, 320)
+
+  # img_shape: 480          # the training image will be resized,
+                            #     and the longer side will be 480px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

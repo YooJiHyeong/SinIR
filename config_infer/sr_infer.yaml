@@ -1,0 +1,20 @@
+DESC:
+  - super_resolution
+
+USE_LAST_NET_ONLY: true
+
+DATASET:
+  img_path: "imgs/super_resolution/LR.png"
+
+  task: sr
+  # mask_path: null         # not used for super-resolution
+
+  # ---------------------------------------------------------------------------
+  # by specifying 'img_shape', the image will be resized before inference
+
+  # img_shape: [480, 320]   # the training image will be resized to (480, 320)
+
+  img_shape: 480            # the training image will be resized,
+                            #     and the longer side will be 480px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

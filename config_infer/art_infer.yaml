@@ -1,0 +1,20 @@
+DESC:
+  - art_st
+
+# USE_LAST_NET_ONLY: true
+
+DATASET:
+  img_path: "imgs/art_st/art_content.jpg"
+
+  # task: null              # not used for artistic style transfer
+  # mask_path: null
+
+  # ---------------------------------------------------------------------------
+  # by specifying 'img_shape', the image will be resized before inference
+
+  # img_shape: [480, 320]   # the training image will be resized to (480, 320)
+
+  img_shape: 500            # the training image will be resized,
+                            #     and the longer side will be 500px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------

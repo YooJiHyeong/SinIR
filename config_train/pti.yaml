@@ -1,0 +1,53 @@
+INFER_YAML:         # if not specified, only training will be excuted
+  - pti_infer
+  # - more
+  # - yamls
+  # - for
+  # - inference
+
+INTERP: pytorch     # bicubic
+# INTERP: matlab    # bicubic + anti-aliasing
+
+OPT:
+  lr: 0.0001
+  betas: [0.5, 0.999]
+
+NET:
+  img_ch: 3
+  net_ch: 128
+
+DESC:
+  - paint_to_image
+  # - more
+  # - descriptions
+  # - you
+  # - want
+
+TRAIN:
+  losses:
+    - ssim11
+    - mse
+
+  iter_per_scale: 500
+  pixel_shuffle_p: 0.005    # 0.005 -> 0.5%
+
+DATASET:
+  # task: null              # not used for paint-to-image
+
+  img_path: imgs/paint_to_image/aurora.jpg
+
+  min_size: 25              # the shorter side of the image at the coarsest scale
+  max_size: 250             # the longer side of the image at the finest scale
+  scale_factor: 0.75
+
+ # ---------------------------------------------------------------------------
+  # by specifying 'img_shape',
+  # the image will be initially resized
+  # before applying 'min_size' and 'max_size'
+
+  # img_shape: [120, 80]    # the training image will be resized to (120, 80)
+
+  # img_shape: 250          # the training image will be resized,
+                            #     and the longer side will be 250px,
+                            #     keeping the original aspect ratio
+  # ---------------------------------------------------------------------------
